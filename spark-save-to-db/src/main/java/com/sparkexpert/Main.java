@@ -21,7 +21,7 @@ public class Main implements Serializable {
 
     public static void main(String[] args) {
         //Sample data-frame loaded from a JSON file
-        DataFrame usersDf = sqlContext.jsonFile("src/main/resources/users.json");
+        DataFrame usersDf = sqlContext.jsonFile("spark-save-to-db/src/main/resources/users.json");
 
         //Save data-frame to MySQL (or any other JDBC supported databases)
         //Choose one of 2 options depending on your requirement (Not both).
