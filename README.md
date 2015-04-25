@@ -10,3 +10,6 @@ Apache Spark applications written for http://www.sparkexpert.com/
 
 3. spark-save-to-db
 [Save apache spark dataframe to database](http://www.sparkexpert.com/2015/04/17/save-apache-spark-dataframe-to-database/)
+
+4. spark-stats
+[Basic descriptive statistics in Apache Spark](http://www.sparkexpert.com/2015/04/25/basic-descriptive-statistics-in-apache-spark/)

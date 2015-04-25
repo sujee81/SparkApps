@@ -15,6 +15,7 @@
         <module>spark-jdbcrdd</module>
         <module>spark-load-from-db</module>
         <module>spark-save-to-db</module>
+        <module>spark-stats</module>
     </modules>
 
     <properties>
