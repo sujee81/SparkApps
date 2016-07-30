@@ -12,6 +12,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>spark-2_0_0-load-from-db</module>
         <module>spark-jdbcrdd</module>
         <module>spark-load-from-db</module>
         <module>spark-save-to-db</module>
