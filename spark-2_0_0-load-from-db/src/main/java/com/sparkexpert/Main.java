@@ -4,11 +4,9 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Properties;
 
-import org.apache.spark.SparkConf;
-import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
-import org.apache.spark.sql.SQLContext;
+import org.apache.spark.sql.SparkSession;
 
 public class Main implements Serializable {
 
@@ -18,10 +16,8 @@ public class Main implements Serializable {
     private static final String MYSQL_USERNAME = "expertuser";
     private static final String MYSQL_PWD = "expertuser123";
 
-    private static final JavaSparkContext sc =
-            new JavaSparkContext(new SparkConf().setAppName("Spark2JdbcDs").setMaster("local[*]"));
-
-    private static final SQLContext sqlContext = new SQLContext(sc);
+    private static final SparkSession sparkSession =
+            SparkSession.builder().master("local[*]").appName("Spark2JdbcDs").getOrCreate();
 
     public static void main(String[] args) {
         //JDBC connection properties
@@ -34,7 +30,7 @@ public class Main implements Serializable {
 
         //Load MySQL query result as Dataset
         Dataset<Row> jdbcDF =
-                sqlContext.read()
+                sparkSession.read()
                         .jdbc(MYSQL_CONNECTION_URL, dbTable, "emp_no", 10001, 499999, 10, connectionProperties);
 
         List<Row> employeeFullNameRows = jdbcDF.collectAsList();
